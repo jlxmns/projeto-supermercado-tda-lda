@@ -231,8 +231,10 @@ void comprarProdutos(new_produto * produto, new_carrinho * carrinho) {
                 scanf("%d", &escolha);
                 fflush(stdin);
                 
-                if(escolha >= globalID) {
-                    printf("Por favor, escolha um ID valido.");
+                if(escolha >= globalID || escolha < 0) {
+                    printf("Por favor, escolha um ID valido.\n");
+                } else if(produto[escolha].qtde == 0) {
+                    printf("Produto fora de estoque.\n");
                 } else {
                     break;
                 }
